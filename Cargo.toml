@@ -1,5 +1,5 @@
 [package]
-name = "compound-interest-calculator"
+name = "compound_interest_calculator"
 version = "0.1.0"
 authors = ["Trace Helms <tracehelms@gmail.com>"]
 edition = "2018"
@@ -32,3 +32,7 @@ wasm-bindgen-test = "0.3.13"
 [profile.release]
 # Tell `rustc` to optimize for small code size.
 opt-level = "s"
+
+[package.metadata.wasm-pack.profile.release]
+# This is a workout for a wasm-pack bug, see: https://github.com/rustwasm/wasm-pack/issues/886
+wasm-opt = ["-Oz", "--enable-mutable-globals"]
